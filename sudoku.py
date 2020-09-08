@@ -3,41 +3,42 @@ board = [
     [6,8,0,0,7,0,0,9,0],
     [1,9,0,0,0,4,5,0,0],
     [8,2,0,1,0,0,0,4,0],
-    [0,0,4,1,0,0,9,0,0],
+    [0,0,4,6,0,2,9,0,0],
     [0,5,0,0,0,3,0,2,8],
     [0,0,9,3,0,0,0,7,4],
-    [0,4,0,6,0,2,9,0,0],
+    [0,4,0,0,5,0,0,3,6],
     [7,0,3,0,1,8,0,0,0]
 ]
 
-def solve(brd):
-    find = find_empty(brd)
+
+def solve(bo):
+    find = find_empty(bo)
     if not find:
         return True
     else:
         row, col = find
 
     for i in range(1,10):
-        if valid(brd, i, (row, col)):
-            brd[row][col] = i
+        if valid(bo, i, (row, col)):
+            bo[row][col] = i
 
-            if solve(brd):
+            if solve(bo):
                 return True
 
-            brd[row][col] = 0
+            bo[row][col] = 0
 
     return False
 
 
-def valid(brd, num, pos):
+def valid(bo, num, pos):
     # Check row
-    for i in range(len(brd[0])):
-        if brd[pos[0]][i] == num and pos[1] != i:
+    for i in range(len(bo[0])):
+        if bo[pos[0]][i] == num and pos[1] != i:
             return False
 
     # Check column
-    for i in range(len(brd)):
-        if brd[i][pos[1]] == num and pos[0] != i:
+    for i in range(len(bo)):
+        if bo[i][pos[1]] == num and pos[0] != i:
             return False
 
     # Check box
@@ -46,31 +47,31 @@ def valid(brd, num, pos):
 
     for i in range(box_y*3, box_y*3 + 3):
         for j in range(box_x * 3, box_x*3 + 3):
-            if brd[i][j] == num and (i,j) != pos:
+            if bo[i][j] == num and (i,j) != pos:
                 return False
 
     return True
 
 
-def print_board(brd):
-    for i in range(len(brd)):
+def print_board(bo):
+    for i in range(len(bo)):
         if i % 3 == 0 and i != 0:
             print("- - - - - - - - - - - - - ")
 
-        for j in range(len(brd[0])):
+        for j in range(len(bo[0])):
             if j % 3 == 0 and j != 0:
                 print(" | ", end="")
 
             if j == 8:
-                print(brd[i][j])
+                print(bo[i][j])
             else:
-                print(str(brd[i][j]) + " ", end="")
+                print(str(bo[i][j]) + " ", end="")
 
 
-def find_empty(brd):
-    for i in range(len(brd)):
-        for j in range(len(brd[0])):
-            if brd[i][j] == 0:
+def find_empty(bo):
+    for i in range(len(bo)):
+        for j in range(len(bo[0])):
+            if bo[i][j] == 0:
                 return (i, j)  # row, col
 
     return None
