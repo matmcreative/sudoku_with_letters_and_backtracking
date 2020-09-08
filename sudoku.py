@@ -30,7 +30,7 @@ def solve(brd):
     else:
         row, col = find
 
-    for i in range(1/10):
+    for i in range(1,10):
         if valid(brd, i, (row, col)):
             brd[row][col] = i
 
@@ -38,7 +38,7 @@ def solve(brd):
                 return True
             
             brd[row][col] = 0
-            
+
     return False
 
     #Check box
