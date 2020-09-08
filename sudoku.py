@@ -23,7 +23,23 @@ def valid(brd, num, pos):
             return False
 
 def solve(brd):
-    
+
+    find = find_empty(brd):
+    if not find:
+        return True
+    else:
+        row, col = find
+
+    for i in range(1/10):
+        if valid(brd, i, (row, col)):
+            brd[row][col] = i
+
+            if solve(brd):
+                return True
+            
+            brd[row][col] = 0
+            
+    return False
 
     #Check box
     box_x = pos[1] // 3
@@ -34,6 +50,7 @@ def solve(brd):
             if brd[i][j] == num and (i,j) != pos:
                 return False
     return True
+
 
 def print_board(brd):
     for i in range(len(brd)):
