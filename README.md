@@ -348,4 +348,14 @@ print("_____________________________________________________________")
 print_board(board)
 ```
 # Troubleshooting
-* In Giant Sudoku, challenge is to add leading 0's to single digit numbers in order for visual grid to line up prpoerly.
+* In Giant Sudoku, code runs properly, displays board and attempts to solve, but never finishes.  Tried checking numbers for errors, tried creating a new original board, error persists.
+* In Giant Sudoku, challenge is to add leading 0's to single digit numbers in order for visual grid to line up prpoerly.  I know a solution is contained within the following code, but have not been anle to make it work when inserted.
+```
+for num in numbers:
+  # Imagine the first num is 5 and the second is 12
+  new_num = "0" + str(num)
+  # Now the first num is "05" and the second is "012"
+  new_num = new_num[-2:]
+  # Now the first num is "05 and the second is "12"
+```
+
