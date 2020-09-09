@@ -25,6 +25,7 @@ board = [
     [0,5,0,0,0,0,0,19,24,0,7,0,0,0,21,0,0,0,0,20,0,6,3,10,0],
     [0,0,0,0,3,12,0,1,0,0,8,14,18,20,0,16,0,0,0,0,0,11,0,0,0]
 ]
+
 def solve(brd):
     find = find_empty(brd)
     if not find:
@@ -70,7 +71,7 @@ def valid(brd, num, pos):
 def print_board(brd):
     for i in range(len(brd)):
         if i % 5 == 0 and i != 0:
-            print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
+            print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
 
         for j in range(len(brd[0])):
             if j % 5 == 0 and j != 0:
@@ -92,5 +93,5 @@ def find_empty(brd):
 
 print_board(board)
 solve(board)
-print("___________________")
+print("_____________________________________________________________")
 print_board(board)
