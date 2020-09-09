@@ -9,7 +9,7 @@ board = [
     [0,4,0,0,5,0,0,3,6],
     [7,0,3,0,1,8,0,0,0]	
 ]
-
+# Create function to solve board
 def solve(brd):
     find = find_empty(brd)
     if not find:
@@ -29,6 +29,7 @@ def solve(brd):
     return False
 
 
+# Create function to determine if placed numbers are valid
 def valid(brd, num, pos):
     # Check row
     for i in range(len(brd[0])):
@@ -52,6 +53,7 @@ def valid(brd, num, pos):
     return True
 
 
+# Create function to print grid for puzzle board
 def print_board(brd):
     for i in range(len(brd)):
         if i % 3 == 0 and i != 0:
@@ -67,6 +69,7 @@ def print_board(brd):
                 print(str(brd[i][j]) + " ", end="")
 
 
+# Create function to determin if puzzle board contains empty values
 def find_empty(brd):
     for i in range(len(brd)):
         for j in range(len(brd[0])):
