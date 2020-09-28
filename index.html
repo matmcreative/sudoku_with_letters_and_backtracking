@@ -1,21 +1,14 @@
-<!DOCTYPE html>
-<html>
-  <head>    
-  </head>
-  <body>
-    <input type="button" id='script' name="scriptbutton" value=" Run Giant Letter Sudoku " onclick="goPython()">
+<!doctype html>
 
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-    <script>
-        function goPython(){
-            $.ajax({
-              url: "wordoku_giant.py",
-             context: document.body
-            }).done(function() {
-             alert('finished python script');;
-            });
-        }
-    </script>
-  </body>
-</html>
+<head><title>Test</title> 
+    <meta charset=utf-8> </head>
+    <body>
+        <h1>Giant Wordoku</h1>
+        <form action="/wordoku_giant.py/">
+            <input type="submit" value="Click me" />
+        </form>
+        
+        <button> <a href="/wordoku_giant.py/">Click me</a></button>
+
+    </body>
